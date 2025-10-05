@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Crypto Portfolio Tracker</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Crypto Tracker</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">
+                    <span class="icon">📊</span>
+                    Dashboard
+                </a>
+                <a href="portfolio.html" class="nav-item">
+                    <span class="icon">💼</span>
+                    Portfolios
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <span class="icon">🚪</span>
+                    Logout
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div id="userInfo"></div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h1>Dashboard</h1>
+                <button class="btn btn-primary" id="createPortfolioBtn">+ Create Portfolio</button>
+            </header>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-info">
+                        <h3 id="totalValue">$0.00</h3>
+                        <p>Total Portfolio Value</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-info">
+                        <h3 id="totalProfit">$0.00</h3>
+                        <p>Total Profit/Loss</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💼</div>
+                    <div class="stat-info">
+                        <h3 id="portfolioCount">0</h3>
+                        <p>Portfolios</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🪙</div>
+                    <div class="stat-info">
+                        <h3 id="coinCount">0</h3>
+                        <p>Total Coins</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolios List -->
+            <section class="portfolios-section">
+                <h2>Your Portfolios</h2>
+                <div id="portfoliosList" class="portfolios-grid">
+                    <div class="loading">Loading portfolios...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Create Portfolio Modal -->
+    <div id="createPortfolioModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Portfolio</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="createPortfolioForm">
+                <div class="form-group">
+                    <label for="portfolioName">Portfolio Name</label>
+                    <input type="text" id="portfolioName" required placeholder="My Crypto Portfolio">
+                </div>
+                <div class="form-group">
+                    <label for="portfolioDescription">Description (Optional)</label>
+                    <textarea id="portfolioDescription" rows="3" placeholder="Describe your investment strategy..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="portfolioPublic">
+                        Make portfolio public
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Portfolio</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

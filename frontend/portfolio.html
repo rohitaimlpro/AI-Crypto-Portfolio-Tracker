@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Details - Crypto Portfolio Tracker</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Crypto Tracker</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="icon">📊</span>
+                    Dashboard
+                </a>
+                <a href="portfolio.html" class="nav-item active">
+                    <span class="icon">💼</span>
+                    Portfolios
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <span class="icon">🚪</span>
+                    Logout
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div id="userInfo"></div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Portfolio Header -->
+            <div class="portfolio-header">
+                <div>
+                    <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+                    <h1 id="portfolioName">Loading...</h1>
+                    <p id="portfolioDescription"></p>
+                </div>
+                <button class="btn btn-primary" id="addCoinBtn">+ Add Coin</button>
+            </div>
+
+            <!-- Portfolio Value Card -->
+            <div class="value-card">
+                <div class="value-main">
+                    <h2>Total Portfolio Value</h2>
+                    <div class="value-amount" id="totalValue">$0.00</div>
+                </div>
+                <div class="value-stats">
+                    <div class="value-stat">
+                        <span class="label">Total Coins</span>
+                        <span class="value" id="totalCoins">0</span>
+                    </div>
+                    <div class="value-stat">
+                        <span class="label">Total Profit/Loss</span>
+                        <span class="value" id="totalProfitLoss">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Holdings Table -->
+            <section class="holdings-section">
+                <h2>Holdings</h2>
+                <div id="holdingsContainer">
+                    <div class="loading">Loading holdings...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add Coin Modal -->
+    <div id="addCoinModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Coin to Portfolio</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="addCoinForm">
+                <div class="form-group">
+                    <label for="coinSearch">Search Coin</label>
+                    <input type="text" id="coinSearch" placeholder="Search by name or symbol..." required>
+                    <div id="coinSearchResults" class="search-results"></div>
+                </div>
+                <div class="form-group">
+                    <label for="coinId">Coin ID</label>
+                    <input type="text" id="coinId" readonly required>
+                </div>
+                <div class="form-group">
+                    <label for="coinSymbol">Symbol</label>
+                    <input type="text" id="coinSymbol" readonly required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" step="0.00000001" min="0" required placeholder="0.5">
+                </div>
+                <div class="form-group">
+                    <label for="buyPrice">Average Buy Price (USD)</label>
+                    <input type="number" id="buyPrice" step="0.01" min="0" placeholder="Optional">
+                </div>
+                <button type="submit" class="btn btn-primary">Add to Portfolio</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- AI Insights Modal -->
+    <div id="aiInsightsModal" class="modal hidden">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>AI Insights - <span id="insightCoinName"></span></h3>
+                <button class="close-modal-insights">&times;</button>
+            </div>
+            <div id="aiInsightsContent">
+                <div class="loading">Generating AI insights...</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/portfolio.js"></script>
+</body>
+</html>
